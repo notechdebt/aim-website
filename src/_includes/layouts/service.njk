@@ -1,0 +1,87 @@
+---
+layout: layouts/base.njk
+---
+  <section class="hero page-hero" id="hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          {%- for b in breadcrumbs %}
+          {%- if loop.last %}
+          <li aria-current="page">{{ b.name | safe }}</li>
+          {%- else %}
+          <li><a href="{{ b.url }}">{{ b.name | safe }}</a></li>
+          {%- endif %}
+          {%- endfor %}
+        </ol>
+      </nav>
+      <h1>{{ heading | safe }}</h1>
+      <p class="lede">{{ lede | safe }}</p>
+      <div class="actions">
+        <a class="btn btn-brass" href="{{ site.phoneHref }}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          Call {{ site.phone }}
+        </a>
+        <a class="btn btn-ghost" href="#included">What's included</a>
+      </div>
+    </div>
+    <div class="hero-foot">
+      <div class="wrap">
+        <span>{{ site.address.full }}</span>
+        <a href="{{ site.phoneHref }}">{{ site.phone }}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="included" id="included" aria-labelledby="inc-title">
+    <div class="wrap">
+      <div class="group">
+        <div class="group-head">
+          <h2 id="inc-title">What's included</h2>
+        </div>
+        <ul class="svc">
+          {%- for i in included %}
+          <li><h3>{{ i.name | safe }}</h3><p>{{ i.desc | safe }}</p></li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {%- for s in sections %}
+  <section class="prose" aria-labelledby="sec-{{ loop.index }}">
+    <div class="wrap">
+      <h2 id="sec-{{ loop.index }}">{{ s.title | safe }}</h2>
+      <div>
+        {%- for p in s.body %}
+        <p>{{ p | safe }}</p>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+  {%- endfor %}
+
+  <section class="steps-sec" aria-labelledby="steps-title">
+    <div class="wrap">
+      <h2 id="steps-title">How it works</h2>
+      <ol class="steps">
+        {%- for st in steps %}
+        <li><h3>{{ st.name | safe }}</h3><p>{{ st.desc | safe }}</p></li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </section>
+
+{% include "partials/faq.njk" %}
+
+  <section class="related" aria-labelledby="rel-title">
+    <div class="wrap">
+      <h2 id="rel-title">More services in Astoria</h2>
+      <div class="cards">
+        {%- for s in services %}{% if s.url != page.url %}
+        <a class="card" href="{{ s.url }}"><strong>{{ s.title | safe }}</strong><span>{{ s.blurb }}</span></a>
+        {%- endif %}{% endfor %}
+      </div>
+    </div>
+  </section>
+
+{% include "partials/contact.njk" %}

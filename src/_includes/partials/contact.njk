@@ -1,0 +1,12 @@
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 id="contact-title">{{ contactTitle or "Let's get your finances in order." }}</h2>
+      <p class="sub">{{ contactSub or "Request a personalized quote for accounting, tax or notary services. Call, write or visit us in Astoria." }}</p>
+      <address class="rows">
+        <a class="row" href="{{ site.phoneHref }}"><small>Call</small><span>{{ site.phone }}</span></a>
+        <a class="row" href="mailto:{{ site.email }}"><small>Email</small><span>{{ site.email }}</span></a>
+        <a class="row" href="{{ site.mapsUrl }}" target="_blank" rel="noopener"><small>Visit</small><span>{{ site.address.full }}</span></a>
+      </address>
+      <!-- TODO: add office hours here (and site.hours in src/_data/site.js) once confirmed -->
+    </div>
+  </section>

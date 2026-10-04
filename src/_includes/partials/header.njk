@@ -1,0 +1,18 @@
+<header class="top" id="hdr">
+  <div class="wrap">
+    {% if page.url == "/" %}<a class="logo" href="#top" aria-label="AIM Business Inc, back to top">{% else %}<a class="logo" href="/" aria-label="AIM Business Inc, home">{% endif %}
+      <b>AIM<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M2 34 C 30 14, 62 6, 98 8" stroke="#C3A06A" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg></b>
+      <small>Business Inc</small>
+    </a>
+    <button type="button" class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><i></i></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      {%- set base = "" if page.url == "/" else "/" %}
+      <a href="{{ base }}#about">About</a>
+      <a href="{{ base }}#services">Services</a>
+      <a href="{{ base }}#testimonials">Testimonials</a>
+      <a href="{{ base }}#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="{{ site.phoneHref }}">Call {{ site.phone }}</a>
+    </nav>
+  </div>
+</header>

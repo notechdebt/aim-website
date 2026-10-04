@@ -1,0 +1,21 @@
+{
+  "name": "aim-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "check": "html-validate \"_site/**/*.html\" && node scripts/check-site.mjs",
+    "lighthouse": "lhci autorun",
+    "test": "npm run build && npm run check && npm run lighthouse"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@lhci/cli": "^0.15.1",
+    "html-validate": "^11.16.2",
+    "node-html-parser": "^9.0.4"
+  }
+}
