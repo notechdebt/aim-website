@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0F1B2D">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:title" content="{{ ogTitle or title }}">
+<meta property="og:description" content="{{ ogDescription or description }}">
+<meta property="og:image" content="{{ site.url }}{{ site.ogImage }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AIM Business Inc: accounting, tax and notary in Astoria, Queens">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/images/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preload" href="/fonts/bodoni-moda-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+{% structuredData %}
+<style>
+{% inline "css/site.css" %}
+</style>
+</head>
+<body>
+
+{% include "partials/header.njk" %}
+
+<main id="top">
+{{ content | safe }}
+</main>
+
+{% include "partials/footer.njk" %}
+
+<a class="btn btn-brass pill" id="pill" href="{{ site.phoneHref }}">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+  Call {{ site.phone }}
+</a>
+
+<script>
+{% inline "js/site.js" %}
+</script>
+<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.analyticsToken }}"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

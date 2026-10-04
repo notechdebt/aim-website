@@ -1,0 +1,14 @@
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div>
+        <h2 id="faq-title">{{ faqTitle | safe }}</h2>
+        <p class="intro">Anything else? Give us a call and we'll walk you through it.</p>
+      </div>
+      <div class="qa">
+        {%- for f in faq %}
+        <details><summary>{{ f.q | safe }}<span class="plus"></span></summary>
+          <div class="ans"><p>{{ f.a | safe }}</p></div></details>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>

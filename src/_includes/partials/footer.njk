@@ -1,0 +1,23 @@
+<footer>
+  <div class="wrap foot-cols">
+    <div>
+      <p class="foot-name">{{ site.name }}</p>
+      <address>
+        {{ site.address.full }}<br>
+        <a href="{{ site.phoneHref }}">{{ site.phone }}</a> · <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      </address>
+    </div>
+    <nav aria-label="Services">
+      <p class="foot-name">Services</p>
+      <ul>
+        {%- for s in services %}
+        <li><a href="{{ s.url }}">{{ s.title | safe }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap foot-base">
+    <span>© {{ site.year }} {{ site.name }}</span>
+    <a class="backtop" href="#top">Back to top</a>
+  </div>
+</footer>
